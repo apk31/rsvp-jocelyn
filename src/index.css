@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-cream text-slate-800 transition-colors duration-300;
+}
+
+.dark body {
+  @apply bg-slate-900 text-slate-100;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease forwards;
+}
+@keyframes progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.animate-progress {
+  animation: progress 1s ease forwards;
+}
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pageFade {
+  animation: pageFade 0.35s ease;
+}
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+}
+
+.animate-slideDown {
+  animation: slideDownFade 0.4s ease forwards;
+}
+
+.animate-slideUp {
+  animation: slideUpFade 0.3s ease forwards;
+  overflow: hidden;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -500px 0;
+  }
+  100% {
+    background-position: 500px 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #b1b3b6 25%,
+    #f3f4f6 50%,
+    #b1b3b6 75%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.dark .skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #334155 25%,
+    #475569 50%,
+    #59759c 75%
+  );
+}
+@keyframes dots {
+  0%, 20% { content: "."; }
+  40% { content: ".."; }
+  60%, 100% { content: "..."; }
+}
+
+.loading-dots::after {
+  content: ".";
+  animation: dots 1.4s infinite steps(3);
+}
+@keyframes bounceDot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: .4 }
+  40% { transform: scale(1); opacity: 1 }
+}
+
+.dot {
+  animation: bounceDot 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) { animation-delay: -0.32s }
+.dot:nth-child(2) { animation-delay: -0.16s }
+/* Light mode background tweak */
+.flipdown.flipdown__theme-light {
+  background: transparent;
+}
+
+/* Dark mode tweak */
+.flipdown.flipdown__theme-dark {
+  background: transparent;
+}
+
+.flipdown .rotor-group-heading {
+  color: #94a3b8; /* slate-400 */
+  font-size: 12px;
+  letter-spacing: 2px;
+}
